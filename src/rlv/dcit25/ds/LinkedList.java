@@ -1,5 +1,7 @@
 package rlv.dcit25.ds;
 
+import java.util.Iterator;
+
 /**
  *
  * @author Russel L. Villacarlos
@@ -165,5 +167,29 @@ public class LinkedList<E> implements List<E> {
         }
         
         return tmp.append("]").toString();
+    }
+    
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
+            Node cur = head;
+            
+            @Override
+            public boolean hasNext() {
+                return cur != tail;
+            }
+
+            @Override
+            public E next() {
+                
+                if(!hasNext()){
+                    throw new IndexOutOfBoundsException();                
+                }
+                
+                cur = cur.next;
+                
+                return cur.value;
+            }
+        };
     }
 }

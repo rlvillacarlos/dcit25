@@ -1,5 +1,7 @@
 package rlv.dcit25.ds;
 
+import java.util.Iterator;
+
 /**
  *
  * @author russel
@@ -152,6 +154,29 @@ public class ArrayList<E> implements List<E> {
         
         return tmp.append("]").toString();
     }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
+            int cur = -1;
+            
+            @Override
+            public boolean hasNext() {
+                return cur < next - 1;
+            }
+
+            @Override
+            public E next() {
+                if(!hasNext()){
+                    throw new IndexOutOfBoundsException();
+                }
+                
+                return arr[++cur];
+                
+            }
+        };
+    }
+    
     
     
 }
