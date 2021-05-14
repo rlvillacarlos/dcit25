@@ -31,6 +31,10 @@ public class LinkedListQueue<E> implements Queue<E>{
         head.next = toRemove.next;
         toRemove.next = null;
         
+        if(tail == toRemove){
+            tail = head;
+        }
+        
         size--;
         
         return toRemove.item; 
