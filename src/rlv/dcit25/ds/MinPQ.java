@@ -4,9 +4,9 @@ package rlv.dcit25.ds;
  *
  * @author russel
  */
-public interface MinPQ<E> extends Iterable<E> {
+public interface MinPQ<E, P> {
 
-    public boolean add(E value);
+    public void add(E value, P priority);
     
     public E getMin();
     
