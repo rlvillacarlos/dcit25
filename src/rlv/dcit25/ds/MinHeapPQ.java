@@ -9,26 +9,26 @@ import java.util.Iterator;
 public class MinHeapPQ<E, P extends Comparable<P>> implements MinPQ<E,P> {
     
     private final List<P> heap;
-    private final List<E> data;
+    private final List<E> elements;
     
     public MinHeapPQ() {
         heap = new ArrayList<>();
-        data = new ArrayList<>();
+        elements = new ArrayList<>();
         
         heap.add(null);
-        data.add(null);
+        elements.add(null);
     }
     
     //Build-Heap
-    public MinHeapPQ(E[] data, P[] priorities) {
+    public MinHeapPQ(E[] elements, P[] priorities) {
         this();
         
         for(P p:priorities){
             this.heap.add(p);
         }
 
-        for(E e:data){
-            this.data.add(e);
+        for(E e:elements){
+            this.elements.add(e);
         }
         
         int size = heap.size() - 1;
@@ -40,8 +40,8 @@ public class MinHeapPQ<E, P extends Comparable<P>> implements MinPQ<E,P> {
     }
     
     @Override
-    public void add(E value, P priority) {        
-        data.add(value);
+    public void add(E element, P priority) {        
+        elements.add(element);
         heap.add(priority);
         
         if(size()>1){
@@ -52,7 +52,7 @@ public class MinHeapPQ<E, P extends Comparable<P>> implements MinPQ<E,P> {
 
     @Override
     public E getMin() {
-        return data.get(1);
+        return elements.get(1);
     }
     
     
@@ -60,7 +60,7 @@ public class MinHeapPQ<E, P extends Comparable<P>> implements MinPQ<E,P> {
     public E removeMin() {        
         swap(1, size());
         
-        E toRemove = data.remove(size());
+        E toRemove = elements.remove(size());
         
         heap.remove(size());
         
@@ -90,7 +90,7 @@ public class MinHeapPQ<E, P extends Comparable<P>> implements MinPQ<E,P> {
     @Override
     public String toString() {
         StringBuilder tmp = new StringBuilder("[");
-        for(E e:data){
+        for(E e:elements){
             tmp.append(e).append(", ");
         }
         if(tmp.length()>1){
@@ -145,13 +145,13 @@ public class MinHeapPQ<E, P extends Comparable<P>> implements MinPQ<E,P> {
     
     private void swap(int i,int j){
         P tmpPriority = heap.get(i);
-        E tmpElement = data.get(i);
+        E tmpElement = elements.get(i);
         
         heap.set(i, heap.get(j));
         heap.set(j, tmpPriority);
 
-        data.set(i, data.get(j));
-        data.set(j, tmpElement);
+        elements.set(i, elements.get(j));
+        elements.set(j, tmpElement);
     }
     
     public static void main(String[] args) {
@@ -160,7 +160,7 @@ public class MinHeapPQ<E, P extends Comparable<P>> implements MinPQ<E,P> {
         tardiness.add("Mark", 10);
         tardiness.add("John", 12);
         tardiness.add("Sarah", 20);
-        tardiness.add("Anna", 15);
+        tardiness.add("Anna", 12);
         tardiness.add("James", 8);
         tardiness.add("Maria", 9);
         tardiness.add("Richard", 13);

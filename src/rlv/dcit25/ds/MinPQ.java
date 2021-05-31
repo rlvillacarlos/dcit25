@@ -6,7 +6,7 @@ package rlv.dcit25.ds;
  */
 public interface MinPQ<E, P> {
 
-    public void add(E value, P priority);
+    public void add(E element, P priority);
     
     public E getMin();
     
