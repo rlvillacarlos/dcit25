@@ -6,13 +6,13 @@ package rlv.dcit25.algo;
  */
 public class LinearSearch {
     
-    public static boolean search(Integer A[], Integer x) {
+    public static int search(Integer A[], Integer x) {
         for (int i = 0; i < A.length; i++) {
             if (A[i].equals(x)) {
-                return true;
+                return i;
             }
         }
-        return false;
+        return -1;
     }
 
     public static void main(String[] args) throws java.lang.Exception {
