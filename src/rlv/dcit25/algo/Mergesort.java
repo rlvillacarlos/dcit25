@@ -29,7 +29,7 @@ public class Mergesort {
             } else if (r > hi) {                    //The right subarray is consumed
                 T[j] = A[l];
                 l++;
-            } else if (A[l].compareTo(A[r]) < 0) {  //The element from the left is smaller
+            } else if (A[l].compareTo(A[r]) <= 0) {  //The element from the left is smaller
                 T[j] = A[l];
                 l++;
             } else {                                //The element from the right is smaller
