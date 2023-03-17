@@ -1,5 +1,7 @@
 package rlv.dcit25.algo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +22,7 @@ public class TowerOfHanoiSolver {
         in.nextLine();
         
         
-        List<Character> rods = List.of('A','B','C');
+        List<Character> rods = new ArrayList(List.of('A','B','C'));
         System.out.printf("Source rod (%s): ", rods.toString().replaceAll("\\[|\\]", ""));
         char source = in.next().toUpperCase().charAt(0);
 
