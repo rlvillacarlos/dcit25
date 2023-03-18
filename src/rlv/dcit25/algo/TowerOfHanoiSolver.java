@@ -1,7 +1,6 @@
 package rlv.dcit25.algo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,11 +46,11 @@ public class TowerOfHanoiSolver {
     
     static String moves(int n, char s, char e, char t){
         if (n == 1) {
-            return "Move disk 1 from " + s + " to " + t;
+            return "Transfer disk 1 from " + s + " to " + t;
         }
         
         return moves(n - 1, s, t, e)
-                + "\nMove disk " + n + " from " + s + " to " + t + "\n"
+                + "\nTransfer disk " + n + " from " + s + " to " + t + "\n"
                 + moves(n - 1, e, s, t);
     }
 }
