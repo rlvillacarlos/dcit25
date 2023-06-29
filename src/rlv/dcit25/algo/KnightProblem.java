@@ -9,7 +9,7 @@ import java.util.*;
 public class KnightProblem {
     static final int ROWS = 8;
     static final int COLS = 8;
-    static final int size = ROWS * COLS;
+    static final int NUM_SQUARES = ROWS * COLS;
     
     /**
      * @param args the command line arguments
@@ -84,7 +84,7 @@ public class KnightProblem {
     }
     
     static int[] bfs(int s){
-        int parent[] = new int[64];
+        int parent[] = new int[NUM_SQUARES];
         for(int i = 0; i< parent.length; i++){
             parent[i] = -1;
         }
